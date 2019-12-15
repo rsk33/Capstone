@@ -2,6 +2,7 @@
 #include "controller.h"
 #include "game.h"
 #include "renderer.h"
+#include "game_map.h"
 
 int main() {
   constexpr std::size_t kFramesPerSecond{60};
@@ -11,9 +12,19 @@ int main() {
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
 
+  // prompt user to select a map
+
+
+  // load a map
+  // GameMap game_map("./maps/corner.txt", kGridWidth, kGridHeight);
+  // game_map.show();
+
+  // std::cout << "map element[y=3][x=3] " << game_map.pixel(3,4) << std::endl;
+  // std::cout << "map element[y=9][x=9] " << game_map.pixel(9,9) << std::endl;
+
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
-  Game game(kGridWidth, kGridHeight);
+  Game game(kGridWidth, kGridHeight, "../maps/corner.txt");
   game.Run(controller, renderer, kMsPerFrame);
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
