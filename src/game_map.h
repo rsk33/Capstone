@@ -12,6 +12,7 @@ class GameMap
 
     void show();
     bool pixel(int x, int y) { return _pixels[y][x]; }  // retun an element: false - free block, true - obstacle
+    bool ObstacleCell(int x, int y);
     std::vector<SDL_Point> obstacles;
 
   private:

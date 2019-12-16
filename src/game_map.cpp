@@ -60,3 +60,12 @@ void GameMap::show()
     std::cout << '\n';
     } 
 }
+
+// method to check if cell is occupied by obstacle
+bool GameMap::ObstacleCell(int x, int y)
+{
+  if (_pixels[y][x] == 1)
+    return true;
+  else
+    return false;
+}
