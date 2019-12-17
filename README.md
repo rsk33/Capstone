@@ -51,8 +51,54 @@ This is a repo for the Capstone project in the [Udacity C++ Nanodegree Program](
 * SDL2 >= 2.0
   * All installation instructions can be found [here](https://wiki.libsdl.org/Installation)
   * Note that for Linux, an `apt` or `apt-get` installation is preferred to building from source.
-* gcc/g++ >= 5.4
-  * Linux: gcc / g++ is installed by default on most Linux distros
+* gcc/g++ >= 9.2.1
+  * Linux: gcc / g++
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt update
+    sudo apt install gcc-9
+    ```
+    
+    if there earlier versions of compiler are installed, default version has to be defined
+    
+    first erase the current `update-alternatives` setup for `gcc` and `g++`
+
+    ```
+    sudo update-alternatives --remove-all gcc 
+    sudo update-alternatives --remove-all g++
+    ```
+
+    install alternatives (ex. for setup for versions 8 and 9)
+
+    ```
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 10
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20
+
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 10
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20
+
+    sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
+    sudo update-alternatives --set cc /usr/bin/gcc
+
+    sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
+    sudo update-alternatives --set c++ /usr/bin/g++
+    ```
+
+    configure alternatives
+
+    ```
+    sudo update-alternatives --config gcc
+    sudo update-alternatives --config g++
+    ```
+
+    check default version
+
+    ```
+    gcc --version
+    g++ --version
+    ```
+
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
