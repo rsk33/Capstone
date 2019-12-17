@@ -5,14 +5,14 @@
 #include <vector>
 #include "SDL.h"
 
+// the class GameMap to store a map read from an input file
 class GameMap
 {
   public:
     GameMap(const std::string &filename, std::size_t grid_width, std::size_t grid_height);
 
-    void show();
-    bool pixel(int x, int y) { return _pixels[y][x]; }  // retun an element: false - free block, true - obstacle
-    bool ObstacleCell(int x, int y);
+    bool ObstacleCell(int x, int y) { return _pixels[y][x]; }  // retun an element: false - free block, true - obstacle
+    // bool ObstacleCell(int x, int y);
     std::vector<SDL_Point> obstacles;
 
   private:
@@ -21,6 +21,6 @@ class GameMap
 };
 
 // helper functions
-std::string select_map();
+std::string SelectMap();
 
 #endif

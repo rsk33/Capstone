@@ -13,18 +13,7 @@ int main() {
   constexpr std::size_t kGridHeight{32};
 
   // prompt user to select a map
-
-
-  // load a map
-  // GameMap game_map("./maps/corner.txt", kGridWidth, kGridHeight);
-  // game_map.show();
-
-  // std::cout << "map element[y=3][x=3] " << game_map.pixel(3,4) << std::endl;
-  // std::cout << "map element[y=9][x=9] " << game_map.pixel(9,9) << std::endl;
-
-  std::string filename = select_map();
-
-  std:: cout << "Selected Map: " << filename << '\n';
+  std::string filename = SelectMap();
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
