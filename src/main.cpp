@@ -22,9 +22,13 @@ int main() {
   // std::cout << "map element[y=3][x=3] " << game_map.pixel(3,4) << std::endl;
   // std::cout << "map element[y=9][x=9] " << game_map.pixel(9,9) << std::endl;
 
+  std::string filename = select_map();
+
+  std:: cout << "Selected Map: " << filename << '\n';
+
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
-  Game game(kGridWidth, kGridHeight, "../maps/corner.txt");
+  Game game(kGridWidth, kGridHeight, filename);
   game.Run(controller, renderer, kMsPerFrame);
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";

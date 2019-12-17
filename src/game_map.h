@@ -20,4 +20,7 @@ class GameMap
     std::vector<std::vector<bool>> _pixels;
 };
 
+// helper functions
+std::string select_map();
+
 #endif
