@@ -6,11 +6,11 @@ This is a repo for the Capstone project in the [Udacity C++ Nanodegree Program](
 
 ## Description
 
-A game Snake, which extends provided basic version. Extended version enables a user adding maps with obstacles. Maps can be created and saved in the directory `/maps` whic is located in the root of the project directory. Maps should be defined with `0 - free pixel` and `1 - obstacle pixel` in a form of `32 rows x 32 columns` sized matrix. Examples are provided. 
+A game Snake, which extends provided basic version. Extended version enables a user adding maps with obstacles. Maps can be created and saved in the directory `/maps` which is located in the root of the project directory. Maps should be defined with `0 - free pixel` and `1 - obstacle pixel` in a form of `32 rows x 32 columns` sized matrix. Examples are provided. 
 
 ## Expected Behaviour or Output of the Program
 
-At the beginning of the game, in case if maps are available, a user is prompted to select a map, by providing an `int` input which corresponds to the map `id` in the list. The program echos the name of the selected map and starts a SDL Library GUI. The Goal of the game is to gain a score by means of aming the snake towards food cubes, while avoiding collision of the snake with itself or the obstacles on the map.
+At the beginning of the game, in case if maps are available, a user is prompted to select a map, by providing an `int` input which corresponds to the map `id` in the list. The program echos the name of the selected map and starts a SDL Library GUI. The Goal of the game is to gain a score by means of aiming the snake towards the food cubes, while avoiding collision of the snake with itself or the obstacles on the map.
 
 ## Rubric Cross-Reference
 * **Loops, Functions, I/O**
