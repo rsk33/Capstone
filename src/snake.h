@@ -3,21 +3,21 @@
 
 #include <vector>
 #include "SDL.h"
+#include "object.h"
 
-class Snake {
+class Snake : public Object {
  public:
   enum class Direction { kUp, kDown, kLeft, kRight };
 
-  Snake(int grid_width, int grid_height)
-      : grid_width(grid_width),
-        grid_height(grid_height),
+  Snake(std::size_t grid_width, std::size_t grid_height)
+      : Object{grid_width, grid_height},
         head_x(grid_width / 2),
         head_y(grid_height / 2) {}
 
   void Update();
 
   void GrowBody();
-  bool SnakeCell(int x, int y);
+  bool Cell(std::size_t x, std::size_t y) const override;
 
   Direction direction = Direction::kUp;
 
@@ -26,15 +26,12 @@ class Snake {
   bool alive{true};
   float head_x;
   float head_y;
-  std::vector<SDL_Point> body;
 
  private:
   void UpdateHead();
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
   bool growing{false};
-  int grid_width;
-  int grid_height;
 };
 
 #endif

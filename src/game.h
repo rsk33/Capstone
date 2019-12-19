@@ -6,7 +6,7 @@
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
-#include "game_map.h"
+#include "map.h"
 
 class Game {
  public:
@@ -19,7 +19,7 @@ class Game {
  private:
   Snake snake;
   SDL_Point food;
-  GameMap game_map;
+  Map map;
 
   std::random_device dev;
   std::mt19937 engine;

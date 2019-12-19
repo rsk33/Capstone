@@ -1,9 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "game_map.h"
+#include "map.h"
 
-GameMap::GameMap(const std::string &filename, std::size_t grid_width, std::size_t grid_height)
+Map::Map(const std::string &filename, std::size_t grid_width, std::size_t grid_height)
+: Object{grid_width, grid_height}
 {
     // maps available
     if (filename != ""){
@@ -32,9 +33,9 @@ GameMap::GameMap(const std::string &filename, std::size_t grid_width, std::size_
                     }
                     else if(line[i] == '1'){
                         x_elems.push_back(true);
-                        // populate obstacles container
+                        // populate body container
                         SDL_Point point{i,line_count};
-                        obstacles.push_back(point);
+                        body.push_back(point);
                     }
                     else{
                         std::cout << "map file error\n";
@@ -62,7 +63,7 @@ GameMap::GameMap(const std::string &filename, std::size_t grid_width, std::size_
 }
 
 // funcction creates a clear map
-void GameMap::PopulateEmpty()
+void Map::PopulateEmpty()
 {
     // populate a map with false
     for(int y{}; y<_grid_height; y++ ){

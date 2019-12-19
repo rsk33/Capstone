@@ -2,7 +2,7 @@
 #include "controller.h"
 #include "game.h"
 #include "renderer.h"
-#include "game_map.h"
+#include "map.h"
 #include "utility.h"
 
 

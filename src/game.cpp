@@ -4,7 +4,7 @@
 
 Game::Game(std::size_t grid_width, std::size_t grid_height, std::string map_filename)
     : snake(grid_width, grid_height),
-      game_map(map_filename ,grid_width, grid_height),
+      map(map_filename ,grid_width, grid_height),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width)),
       random_h(0, static_cast<int>(grid_height)) {
@@ -26,7 +26,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food, game_map);
+    renderer.Render(snake, food, map);
 
     frame_end = SDL_GetTicks();
 
@@ -58,7 +58,7 @@ void Game::PlaceFood() {
     y = random_h(engine);
     // Check that the location is not occupied by a snake item before placing
     // food.
-    if (!snake.SnakeCell(x, y) && !game_map.ObstacleCell(x, y)) {
+    if (!snake.Cell(x, y) && !map.Cell(x, y)) {
       food.x = x;
       food.y = y;
       return;
@@ -75,7 +75,7 @@ void Game::Update() {
   int new_y = static_cast<int>(snake.head_y);
 
   // snake crashes into obstacle
-  if (game_map.ObstacleCell(snake.head_x, snake.head_y)){
+  if (map.Cell(snake.head_x, snake.head_y)){
     snake.alive = false;
   }
 

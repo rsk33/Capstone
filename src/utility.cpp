@@ -3,7 +3,7 @@
 #include <fstream>
 #include <filesystem>
 #include "utility.h"
-#include "game_map.h"
+#include "map.h"
 
 // function to select a map
 std::string SelectMap()
