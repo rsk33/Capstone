@@ -3,6 +3,8 @@
 #include "game.h"
 #include "renderer.h"
 #include "game_map.h"
+#include "utility.h"
+
 
 int main() {
   constexpr std::size_t kFramesPerSecond{60};

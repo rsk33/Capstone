@@ -17,9 +17,11 @@ class GameMap
   private:
     // 2D array: false - free block, true - obstacle
     std::vector<std::vector<bool>> _pixels;
+    int _grid_width;
+    int _grid_height;
+
+    void PopulateEmpty();
 };
 
-// helper functions
-std::string SelectMap();
 
 #endif
