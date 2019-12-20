@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include <limits>
 #include "utility.h"
 #include "map.h"
 
@@ -19,10 +20,8 @@ std::string SelectMap()
 
   // prompt the user and parse a selected map
   if(!maps.empty()){
-      
-      int id_selected {0};
 
-      std::cout << "Please select a map by its id:\n";
+      std::cout << "Following maps are available:\n";
 
       // print names of the maps cutting path and extension off
       // the subset (name length) is dynamically calculated as Name = Entire Length - Path - Extension
@@ -33,7 +32,10 @@ std::string SelectMap()
           std::cout << (i+1) << ". " << maps[i].substr(path_len, name_len) << '\n';
       }
 
-      std::cin >> id_selected;
+      // get map id number selected by user
+      std::cout << "Please select a map by its id:\n";
+      int id_selected = get_int_in_range(1, maps.size());
+
       // echo selected map
       std::cout << "Map \""
                   << maps[id_selected-1].substr(path_len, (maps[id_selected-1].size() - path_len - ext_len))
@@ -46,4 +48,20 @@ std::string SelectMap()
   }
 
   return filename;
+}
+
+// function keeps prompting until int in range is obtained and returns the value
+int get_int_in_range(int min_val, int max_val)
+{ 
+  int value {0};
+  while(true){
+    std::cin >> value;
+      if (value >= min_val && value <= max_val){
+        break;
+      }
+    std::cout << "Wrong input - please enter an integer in the range of [" << min_val << ";" << max_val << "]" << "\n";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  }
+  return value;
 }
